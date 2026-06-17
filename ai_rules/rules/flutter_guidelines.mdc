@@ -1,0 +1,11 @@
+---
+alwaysApply: true
+---
+
+
+- Hardcoded strings in the UI are strictly prohibited. All user-facing text must use Flutter's standard localization stack: ARB files under `mobile/lib/l10n/`, code generation via `fvm flutter gen-l10n`, and generated `AppLocalizations`. English (`app_en.arb`) is the mandatory template and fallback locale.
+- In widgets and view models, access localized text only through the `context.l10n` extension. Do not call `AppLocalizations.of(context)!` directly and do not use manual map-based localization.
+- For code without `BuildContext` (for example notification/background services), use the `localizedTextForDefaultLocale()` helper from `mobile/lib/extensions/build_context_localization_extension.dart`.
+-Do not add any localizaion data to other languages except the english. When app is finish i will give the command to translate all other languages files.
+- Always remove unused code.
+- If there is a structure update, write it to app document about it why when what it does. If the document is not exist create it in documentation/docs
